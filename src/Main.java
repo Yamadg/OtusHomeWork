@@ -1,4 +1,4 @@
-import Tools.NumberValidator;
+import tools.NumberValidator;
 import animals.AbsAnimal;
 import data.AnimalTypeData;
 import data.ColorData;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Main {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final NumberValidator numberValidator = new NumberValidator();
+//    private static final NumberValidator numberValidator = new NumberValidator();
 
     public static void main(String[] args) {
         List<AbsAnimal> animals = new ArrayList<>();
@@ -25,7 +25,7 @@ public class Main {
         }
 
         while (true) {
-            System.out.println(String.format("Введите команду: %s", String.join("/", commandNames)));
+            System.out.printf("Введите команду: %s%n", String.join("/", commandNames));
 
             String userCommandConsole = scanner.next().trim().toUpperCase();
 
@@ -95,7 +95,6 @@ public class Main {
                 }
                 case EXIT: {
                     System.exit(0);
-                    break;
                 }
             }
 
@@ -106,7 +105,7 @@ public class Main {
         while (true) {
             System.out.println(consoleMsg);
             String userAnimalAgeWeight = scanner.next();
-            if (!numberValidator.isNumber(userAnimalAgeWeight)) {
+            if (!NumberValidator.isNumber(userAnimalAgeWeight)) {
                 System.out.println(errorMsg);
                 continue;
             }
